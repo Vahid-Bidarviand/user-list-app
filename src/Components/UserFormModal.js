@@ -33,14 +33,59 @@ function UserForm() {
               }}
             >
               <Col>
-                <p>Full Name:</p>
+                <p>First Name:</p>
+                <p>Last Name:</p>
                 <p>Email:</p>
+                <p>Mobile:</p>
+                <p>Age:</p>
+                <p>Country:</p>
+                <p>City:</p>
                 <p>Account Type:</p>
               </Col>
               <Col>
                 <form>
                   <input
                     type="text"
+                    style={{
+                      marginBottom: "9px",
+                    }}
+                    //   onChange={this.changeFu}
+                    //   value={this.state.content}
+                  ></input>
+                  <input
+                    type="email"
+                    style={{
+                      marginBottom: "9px",
+                    }}
+                    //   onChange={this.changeFu}
+                    //   value={this.state.content}
+                  ></input>
+                  <input
+                    type="email"
+                    style={{
+                      marginBottom: "9px",
+                    }}
+                    //   onChange={this.changeFu}
+                    //   value={this.state.content}
+                  ></input>
+                  <input
+                    type="email"
+                    style={{
+                      marginBottom: "9px",
+                    }}
+                    //   onChange={this.changeFu}
+                    //   value={this.state.content}
+                  ></input>
+                  <input
+                    type="email"
+                    style={{
+                      marginBottom: "9px",
+                    }}
+                    //   onChange={this.changeFu}
+                    //   value={this.state.content}
+                  ></input>
+                  <input
+                    type="email"
                     style={{
                       marginBottom: "9px",
                     }}
@@ -77,7 +122,14 @@ function UserForm() {
                 justifyContent: "center",
               }}
             >
-              <button type="button" class="btn btn-primary" disabled={false}>
+              <button
+                type="button"
+                class="btn btn-primary"
+                disabled={false}
+                style={{
+                  width: "50%",
+                }}
+              >
                 Save changes
               </button>
             </div>

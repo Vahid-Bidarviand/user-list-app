@@ -1,6 +1,7 @@
 import "./App.css";
 import "./Components/UserTable";
 import UserList from "./Components/UserTable";
+import UserForm from "./Components/UserFormModal";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
         <h1>We Manage Your Users</h1>
         <p>Manage and edit the list of your users using this app.</p>
       </div>
+      <UserForm />
       <UserList />
     </div>
   );

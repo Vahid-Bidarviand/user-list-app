@@ -15,7 +15,12 @@ function UserList() {
                 </span>
               </Col>
               <Col xs="2">
-                <button type="button" class="btn btn-primary add-user-button">
+                <button
+                  type="button"
+                  class="btn btn-primary add-user-button"
+                  data-toggle="modal"
+                  data-target="#exampleModal"
+                >
                   Add User
                 </button>
               </Col>

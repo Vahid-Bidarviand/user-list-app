@@ -1,4 +1,5 @@
 import React from "react";
+import { Col, Row } from "reactstrap";
 
 function UserForm() {
   return (
@@ -15,7 +16,7 @@ function UserForm() {
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">
-                Modal title
+                Enter User Information Here:
               </h5>
               <button
                 type="button"
@@ -26,16 +27,57 @@ function UserForm() {
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">...</div>
-            <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" class="btn btn-primary">
+            <Row
+              style={{
+                padding: "15px",
+              }}
+            >
+              <Col>
+                <p>Full Name:</p>
+                <p>Email:</p>
+                <p>Account Type:</p>
+              </Col>
+              <Col>
+                <form>
+                  <input
+                    type="text"
+                    style={{
+                      marginBottom: "9px",
+                    }}
+                    //   onChange={this.changeFu}
+                    //   value={this.state.content}
+                  ></input>
+                  <input
+                    type="email"
+                    style={{
+                      marginBottom: "9px",
+                    }}
+                    //   onChange={this.changeFu}
+                    //   value={this.state.content}
+                  ></input>
+                  <div>
+                    <select
+                      style={{
+                        padding: "4px 0",
+                        width: "11.6rem",
+                      }}
+                      placeholder="sss"
+                      //   value="null"
+                    >
+                      <option value="admin">Admin</option>
+                      <option value="user">User</option>
+                    </select>
+                  </div>
+                </form>
+              </Col>
+            </Row>
+            <div
+              class="modal-footer"
+              style={{
+                justifyContent: "center",
+              }}
+            >
+              <button type="button" class="btn btn-primary" disabled={false}>
                 Save changes
               </button>
             </div>

@@ -51,6 +51,7 @@ class UserList extends Component {
                     <th scope="col">Country</th>
                     <th scope="col">City</th>
                     <th scope="col">Status</th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -68,6 +69,21 @@ class UserList extends Component {
                           <td>{user.country}</td>
                           <td>{user.city}</td>
                           <td>{user.status}</td>
+                          <td>
+                            <i
+                              className="fa fa-pencil"
+                              style={{
+                                cursor: "pointer",
+                              }}
+                            ></i>
+                            <i
+                              className="fa fa-trash"
+                              style={{
+                                marginLeft: "15px",
+                                cursor: "pointer",
+                              }}
+                            ></i>
+                          </td>
                         </tr>
                       );
                     })}

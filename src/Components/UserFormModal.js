@@ -45,24 +45,27 @@ class UserForm extends Component {
       this.setState({
         city: e.target.value,
       });
-    } else if (name === "statue") {
+    } else if (name === "status") {
       this.setState({
-        statue: e.target.value,
+        status: e.target.value,
       });
     }
   }
+
   handleSave() {
-    console.log(
-      "dd",
-      this.state.firstName,
-      this.state.lastName,
-      this.state.email,
-      this.state.mobile,
-      this.state.age,
-      this.state.country,
-      this.state.city,
-      this.state.status
-    );
+    let user = [
+      {
+        fullName: this.state.firstName + " " + this.state.lastName,
+        lastName: this.state.lastName,
+        email: this.state.email,
+        mobile: this.state.mobile,
+        age: this.state.age,
+        country: this.state.country,
+        city: this.state.city,
+        status: this.state.status,
+      },
+    ];
+    localStorage.setItem("userList", JSON.stringify(user));
   }
 
   render() {

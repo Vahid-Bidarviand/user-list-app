@@ -14,6 +14,15 @@ class UserList extends Component {
       items: getUserList,
     });
   }
+  handleDelete(id) {
+    let allUsers =
+      this.state.items && this.state.items != "null" ? this.state.items : [];
+    let newUserList = allUsers.filter((user) => {
+      return user.id !== id;
+    });
+    localStorage.setItem("userList", JSON.stringify(newUserList));
+    window.location.reload();
+  }
   render() {
     return (
       <div>
@@ -40,27 +49,25 @@ class UserList extends Component {
                   </button>
                 </Col>
               </Row>
-              <table className="table">
-                <thead className="thead-dark">
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Full Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Mobile</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">Country</th>
-                    <th scope="col">City</th>
-                    <th scope="col">Status</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {this.state.items &&
-                    this.state.items.length > 0 &&
-                    this.state.items.map((user, index) => {
-                      // console.log("ss", user);
+              {this.state.items && this.state.items.length > 0 ? (
+                <table className="table">
+                  <thead className="thead-dark">
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Full Name</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Mobile</th>
+                      <th scope="col">Age</th>
+                      <th scope="col">Country</th>
+                      <th scope="col">City</th>
+                      <th scope="col">Status</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {this.state.items.map((user, index) => {
                       return (
-                        <tr key={index}>
+                        <tr key={user.id}>
                           <th scope="row">{index + 1}</th>
                           <td>{user.fullName}</td>
                           <td>{user.email}</td>
@@ -78,6 +85,9 @@ class UserList extends Component {
                             ></i>
                             <i
                               className="fa fa-trash"
+                              onClick={() => {
+                                this.handleDelete(user.id);
+                              }}
                               style={{
                                 marginLeft: "15px",
                                 cursor: "pointer",
@@ -87,8 +97,27 @@ class UserList extends Component {
                         </tr>
                       );
                     })}
-                </tbody>
-              </table>
+                  </tbody>
+                </table>
+              ) : (
+                <div
+                  style={{
+                    border: "2px solid white",
+                    height: "100px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <p
+                    style={{
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Currenty you don't have any users please add some :)
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>

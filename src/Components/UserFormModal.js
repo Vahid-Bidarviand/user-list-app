@@ -13,7 +13,15 @@ class UserForm extends Component {
       country: "",
       city: "",
       status: "Admin",
+      items: [],
     };
+  }
+
+  componentDidMount() {
+    let userList = JSON.parse(localStorage.getItem("userList"));
+    this.setState({
+      items: userList,
+    });
   }
 
   onChangeForm(name, e) {
@@ -53,9 +61,10 @@ class UserForm extends Component {
   }
 
   handleSave() {
-    let userData = JSON.parse(localStorage.getItem("userList"));
-    let user = userData ? userData : [];
+    let user =
+      this.state.items && this.state.items != "null" ? this.state.items : [];
     let userItem = {
+      id: Math.random(),
       fullName: this.state.firstName + " " + this.state.lastName,
       lastName: this.state.lastName,
       email: this.state.email,
@@ -65,7 +74,7 @@ class UserForm extends Component {
       city: this.state.city,
       status: this.state.status,
     };
-    userData.push(userItem);
+    user.push(userItem);
     localStorage.setItem("userList", JSON.stringify(user));
     window.location.reload();
   }

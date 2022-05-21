@@ -12,7 +12,7 @@ class UserForm extends Component {
       age: "",
       country: "",
       city: "",
-      status: "",
+      status: "Admin",
     };
   }
 
@@ -53,19 +53,21 @@ class UserForm extends Component {
   }
 
   handleSave() {
-    let user = [
-      {
-        fullName: this.state.firstName + " " + this.state.lastName,
-        lastName: this.state.lastName,
-        email: this.state.email,
-        mobile: this.state.mobile,
-        age: this.state.age,
-        country: this.state.country,
-        city: this.state.city,
-        status: this.state.status,
-      },
-    ];
+    let userData = JSON.parse(localStorage.getItem("userList"));
+    let user = userData ? userData : [];
+    let userItem = {
+      fullName: this.state.firstName + " " + this.state.lastName,
+      lastName: this.state.lastName,
+      email: this.state.email,
+      mobile: this.state.mobile,
+      age: this.state.age,
+      country: this.state.country,
+      city: this.state.city,
+      status: this.state.status,
+    };
+    userData.push(userItem);
     localStorage.setItem("userList", JSON.stringify(user));
+    window.location.reload();
   }
 
   render() {
@@ -185,8 +187,8 @@ class UserForm extends Component {
                           this.onChangeForm("status", e);
                         }}
                       >
-                        <option value="admin">Admin</option>
-                        <option value="user">User</option>
+                        <option value="Admin">Admin</option>
+                        <option value="User">User</option>
                       </select>
                     </div>
                   </form>

@@ -16,8 +16,8 @@ class UserList extends Component {
   render() {
     return (
       <div>
-        <div class="container">
-          <div class="row">
+        <div className="container">
+          <div className="row">
             <div className="content-box">
               <Row className="table-header">
                 <Col xs="10">
@@ -30,7 +30,7 @@ class UserList extends Component {
                 <Col xs="2">
                   <button
                     type="button"
-                    class="btn btn-primary add-user-button"
+                    className="btn btn-primary add-user-button"
                     data-toggle="modal"
                     data-target="#exampleModal"
                   >
@@ -38,8 +38,8 @@ class UserList extends Component {
                   </button>
                 </Col>
               </Row>
-              <table class="table">
-                <thead class="thead-dark">
+              <table className="table">
+                <thead className="thead-dark">
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Full Name</th>

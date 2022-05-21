@@ -8,37 +8,83 @@ class UserForm extends Component {
       firstName: "",
       lastName: "",
       email: "",
+      mobile: "",
+      age: "",
+      country: "",
+      city: "",
       status: "",
-      time: "",
     };
   }
 
-  onChangeForm(e) {
-    this.setState({
-      firstName: "",
-    });
+  onChangeForm(name, e) {
+    if (name === "firstName") {
+      this.setState({
+        firstName: e.target.value,
+      });
+    } else if (name === "lastName") {
+      this.setState({
+        lastName: e.target.value,
+      });
+    } else if (name === "email") {
+      this.setState({
+        email: e.target.value,
+      });
+    } else if (name === "mobile") {
+      this.setState({
+        mobile: e.target.value,
+      });
+    } else if (name === "age") {
+      this.setState({
+        age: e.target.value,
+      });
+    } else if (name === "country") {
+      this.setState({
+        country: e.target.value,
+      });
+    } else if (name === "city") {
+      this.setState({
+        city: e.target.value,
+      });
+    } else if (name === "statue") {
+      this.setState({
+        statue: e.target.value,
+      });
+    }
+  }
+  handleSave() {
+    console.log(
+      "dd",
+      this.state.firstName,
+      this.state.lastName,
+      this.state.email,
+      this.state.mobile,
+      this.state.age,
+      this.state.country,
+      this.state.city,
+      this.state.status
+    );
   }
 
   render() {
     return (
       <div>
         <div
-          class="modal fade"
+          className="modal fade"
           id="exampleModal"
-          tabindex="-1"
+          tabIndex="-1"
           role="dialog"
           aria-labelledby="exampleModalLabel"
           aria-hidden="true"
         >
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">
                   Enter User Information Here:
                 </h5>
                 <button
                   type="button"
-                  class="close"
+                  className="close"
                   data-dismiss="modal"
                   aria-label="Close"
                 >
@@ -67,56 +113,63 @@ class UserForm extends Component {
                       style={{
                         marginBottom: "9px",
                       }}
-                      onChange={this.onChangeForm}
-                      // value={this.state.firstName}
+                      onChange={(e) => {
+                        this.onChangeForm("firstName", e);
+                      }}
+                    ></input>
+                    <input
+                      type="text"
+                      style={{
+                        marginBottom: "9px",
+                      }}
+                      onChange={(e) => {
+                        this.onChangeForm("lastName", e);
+                      }}
                     ></input>
                     <input
                       type="email"
                       style={{
                         marginBottom: "9px",
                       }}
-                      //   onChange={this.changeFu}
-                      //   value={this.state.content}
+                      onChange={(e) => {
+                        this.onChangeForm("email", e);
+                      }}
                     ></input>
                     <input
-                      type="email"
+                      type="number"
                       style={{
                         marginBottom: "9px",
                       }}
-                      //   onChange={this.changeFu}
-                      //   value={this.state.content}
+                      onChange={(e) => {
+                        this.onChangeForm("mobile", e);
+                      }}
                     ></input>
                     <input
-                      type="email"
+                      type="number"
                       style={{
                         marginBottom: "9px",
                       }}
-                      //   onChange={this.changeFu}
-                      //   value={this.state.content}
+                      onChange={(e) => {
+                        this.onChangeForm("age", e);
+                      }}
                     ></input>
                     <input
-                      type="email"
+                      type="text"
                       style={{
                         marginBottom: "9px",
                       }}
-                      //   onChange={this.changeFu}
-                      //   value={this.state.content}
+                      onChange={(e) => {
+                        this.onChangeForm("country", e);
+                      }}
                     ></input>
                     <input
-                      type="email"
+                      type="text"
                       style={{
                         marginBottom: "9px",
                       }}
-                      //   onChange={this.changeFu}
-                      //   value={this.state.content}
-                    ></input>
-                    <input
-                      type="email"
-                      style={{
-                        marginBottom: "9px",
+                      onChange={(e) => {
+                        this.onChangeForm("city", e);
                       }}
-                      //   onChange={this.changeFu}
-                      //   value={this.state.content}
                     ></input>
                     <div>
                       <select
@@ -125,7 +178,9 @@ class UserForm extends Component {
                           width: "11.6rem",
                         }}
                         placeholder="sss"
-                        //   value="null"
+                        onChange={(e) => {
+                          this.onChangeForm("status", e);
+                        }}
                       >
                         <option value="admin">Admin</option>
                         <option value="user">User</option>
@@ -135,17 +190,20 @@ class UserForm extends Component {
                 </Col>
               </Row>
               <div
-                class="modal-footer"
+                className="modal-footer"
                 style={{
                   justifyContent: "center",
                 }}
               >
                 <button
                   type="button"
-                  class="btn btn-primary"
+                  className="btn btn-primary"
                   disabled={false}
                   style={{
                     width: "50%",
+                  }}
+                  onClick={() => {
+                    this.handleSave();
                   }}
                 >
                   Save changes
